@@ -43,26 +43,17 @@ const buttonRow = document.createElement('div');
 buttonRow.classList.add('buttonRow');
 body.appendChild(buttonRow);
 
-const resetButton = document.createElement('button');
-resetButton.classList.add('reset');
-resetButton.textContent = "Reset";
-buttonRow.appendChild(resetButton);
-
 const resizeButton = document.createElement('button');
 resizeButton.classList.add('resize');
 resizeButton.textContent = "Resize Grid";
 buttonRow.appendChild(resizeButton);
 
-// add functionality to reset button
-resetButton.addEventListener('click', () => {
+resizeButton.addEventListener('click', () => {
   const cells = document.getElementsByClassName('cell');
   for (let i = 0; i < cells.length; i++) {
     const cell = cells[i];
     cell.classList.remove('hovered');
   }
-})
-
-resizeButton.addEventListener('click', () => {
   const newSize = Number(window.prompt("New side size:"));
   if (isNaN(newSize)) {
     alert("That's not really a number")
