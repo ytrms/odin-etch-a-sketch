@@ -64,8 +64,10 @@ resetButton.addEventListener('click', () => {
 
 resizeButton.addEventListener('click', () => {
   const newSize = Number(window.prompt("New side size:"));
-  if (newSize > 100) {
-    console.log("too high");
+  if (isNaN(newSize)) {
+    alert("That's not really a number")
+  } else if (newSize > 100) {
+    alert("Nope. Don't go over 100. That would be bad.")
   } else {
     createGrid(newSize);
   }
